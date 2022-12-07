@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<div id = "legend">
+    <div class="sliderContainer">
+      <div class="text">Element 1 Width:</div>
+        <input type="range" min="1" max="200" value="50" id = "sliderWidth"class="slider" oninput="element1Width.innerText = this.value"">
+        <p id="element1Width" class = "text">100</p>
+
+        <div class="text">Element 1 Height:</div>
+        <input type="range" min="1" max="200" value="50" id = "sliderHeight"class="slider" oninput="element1Height.innerText = this.value"">
+        <p id="element1Height" class = "text">100</p>
+
+        <div class="text">Element 1 Border-Radius:</div>
+        <input type="range" min="1" max="75" value="50" id = "sliderRadius"class="slider" oninput="element1Radius.innerText = this.value"">
+        <p id="element1Radius" class = "text">1</p>
+
+    </div>
+</div>
+<div id ="rectangle">
+</div>
+<script>
+let sliderWidth = document.getElementById("sliderWidth");
+let sliderHeight = document.getElementById("sliderHeight");
+let sliderRadius = document.getElementById("sliderRadius");
+let rect = document.getElementById("rectangle");
+
+let width = document.getElementById("element1Width");
+let height = document.getElementById("element1Height");
+let radius = document.getElementById("element1Radius")
+
+sliderWidth.addEventListener("input", changeWidth1);
+sliderHeight.addEventListener("input", changeHeight1)
+sliderRadius.addEventListener("input", changeRadius1)
+
+function changeWidth1(){
+  rect.style.width = width.innerHTML+"px";
+}
+
+function changeHeight1(){
+  rect.style.height = height.innerHTML+"px";
+}
+
+function changeRadius1(){
+  rect.style.borderRadius = radius.innerHTML+"px";
+}
+</script>
+<style>
+.sliderContainer {
+  display: inline-grid;
+  column-gap: 50px;
+  row-gap: 10px;
+  
+}
+
+.slider {
+  width: 100%; /* Width of the outside container */
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+html{
+    background-color: black;
+}
+
+.text{
+  color: white;
+  font-family: Comfortaa;
+  padding-bottom: 10px;
+}
+/* Mouse-over effects */
+
+#rectangle{
+    width: 75px;
+    height: 75px;
+    border: 5px solid limegreen;
+    animation: square 2s infinite ease-in-out alternate-reverse;
+    grid-column-start: 2;
+  grid-column-end: 3;
+}
+</style>
+</html>
